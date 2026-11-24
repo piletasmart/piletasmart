@@ -28,7 +28,7 @@
         </h2>
         <div class="fila-estado">
             <span class="etiqueta">Funcionamiento</span>
-            <span id="bomba-sumergible-estado" class="valor inactivo">🔴 APAGADA</span>
+            <span id="bomba-sumergible-estado" class="valor inactivo">APAGADA</span>
         </div>
     </div>
     
@@ -64,97 +64,8 @@
         <button class="boton btn-detener" onclick="detenerTodoBomba()">⏹️ DETENER TODO</button>
     </div>
     
-    <div class="tarjeta">
-        <h2>
-            <span>Estado — Bomba de Pileta</span>
-            <span id="contador-pileta" class="contador">5s</span>
-        </h2>
-        <div class="fila-estado">
-            <span class="etiqueta">Funcionamiento</span>
-            <span id="bomba-pileta-estado" class="valor inactivo">🔴 APAGADA</span>
-        </div>
-    </div>
-    
-    <div class="tarjeta">
-        <h2>Estado — Válvulas de Pileta</h2>
-        <div class="fila-estado">
-            <span class="etiqueta">🌊 Skimmer</span>
-            <span id="valv-skimmer" class="valor inactivo">🔒 CERRADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">🧹 Barrefondo</span>
-            <span id="valv-barrefondo" class="valor inactivo">🔒 CERRADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">💧 Filtrado</span>
-            <span id="valv-filtrado" class="valor inactivo">🔒 CERRADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">🔄 Retrolavado</span>
-            <span id="valv-retrolavado" class="valor inactivo">🔒 CERRADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">🔴 Desagote</span>
-            <span id="valv-desagote" class="valor inactivo">🔒 CERRADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">💨 Hidrojets</span>
-            <span id="valv-hidrojets" class="valor inactivo">🔒 CERRADA</span>
-        </div>
-    </div>
-    
-    <div class="tarjeta">
-        <h2>Control — Pileta</h2>
-        <div class="fila-doble-tres">
-            <button id="btn-skimmer" class="boton btn-p1" onclick="activarValvulaPileta('skimmer')">🌊 Skimmer</button>
-            <button id="btn-barrefondo" class="boton btn-p2" onclick="activarValvulaPileta('barrefondo')">🧹 Barrefondo</button>
-            <button id="btn-filtrado" class="boton btn-p3" onclick="activarValvulaPileta('filtrado')">💧 Filtrado</button>
-            <button id="btn-retrolavado" class="boton btn-p4" onclick="activarValvulaPileta('retrolavado')">🔄 Retrolavado</button>
-            <button id="btn-desagote" class="boton btn-p5" onclick="activarValvulaPileta('desagote')">🔴 Desagote</button>
-            <button id="btn-hidrojets" class="boton btn-p6" onclick="activarValvulaPileta('hidrojets')">💨 Hidrojets</button>
-            <button id="btn-mtto-pileta" class="boton btn-mantenimiento" onclick="iniciarMantenimientoPileta()">🔧 Mantenimiento</button>
-        </div>
-        <button class="boton btn-detener" onclick="detenerTodoPileta()">⏹️ DETENER TODO</button>
-    </div>
-    
-    <div class="tarjeta">
-        <h2>
-            <span>Estado — Iluminación</span>
-            <span id="contador-luces" class="contador">3s</span>
-        </h2>
-        <div class="fila-estado">
-            <span class="etiqueta">💡 Exterior</span>
-            <span id="luz-exterior" class="valor inactivo">⏸️ APAGADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">💡 Pileta</span>
-            <span id="luz-pileta" class="valor inactivo">⏸️ APAGADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">💡 Jardín</span>
-            <span id="luz-jardin" class="valor inactivo">⏸️ APAGADA</span>
-        </div>
-        <div class="fila-estado">
-            <span class="etiqueta">💡 Quincho</span>
-            <span id="luz-quincho" class="valor inactivo">⏸️ APAGADA</span>
-        </div>
-    </div>
-    
-    <div class="tarjeta">
-        <h2>Control — Iluminación</h2>
-        <div class="fila-doble-tres">
-            <button id="btn-luz-exterior" class="boton btn-p1" onclick="toggleLuz('exterior')">💡 Exterior</button>
-            <button id="btn-luz-pileta" class="boton btn-p2" onclick="toggleLuz('pileta')">💡 Pileta</button>
-            <button id="btn-luz-jardin" class="boton btn-p3" onclick="toggleLuz('jardin')">💡 Jardín</button>
-            <button id="btn-luz-quincho" class="boton btn-p4" onclick="toggleLuz('quincho')">💡 Quincho</button>
-        </div>
-        <button class="boton btn-detener" onclick="apagarTodoLuces()">⏹️ APAGAR TODO</button>
-    </div>
-    
     <div class="pie">📡 Pileta Smart — Lista para conectar</div>
 
     <script src="bomba_sumergible.js"></script>
-    <script src="pileta.js"></script>
-    <script src="luces.js"></script>
 </body>
 </html>
