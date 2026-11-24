@@ -5,6 +5,7 @@ let bombaPiletaEncendida = false;
 let cambiando = false;
 let cuentaPileta = 15;
 let timerPileta;
+let haySinAguaPileta = false;       // ⚠️ Detector de sin agua
 
 const modos = ['skimmer', 'barrefondo', 'barrefondo-desagote', 'filtrado', 'retrolavado', 'desagote', 'hidrojets'];
 
@@ -63,11 +64,40 @@ function actualizarTodo() {
             valvulaPiletaActiva === modo ? btn.classList.add('activo') : btn.classList.remove('activo');
         }
     });
+    
+    // ⚠️ Estado de la bomba con detección de sin agua
     const estadoBomba = document.getElementById('bomba-pileta-estado');
     if (estadoBomba) {
-        estadoBomba.textContent = bombaPiletaEncendida ? '✅ ENCENDIDA' : '⏸️ APAGADA';
-        estadoBomba.className = bombaPiletaEncendida ? 'valor activo' : 'valor inactivo';
+        if (haySinAguaPileta) {
+            estadoBomba.textContent = '⚠️ SIN AGUA';
+            estadoBomba.className = 'valor sinagua';
+        } else {
+            estadoBomba.textContent = bombaPiletaEncendida ? '✅ ENCENDIDA' : '⏸️ APAGADA';
+            estadoBomba.className = bombaPiletaEncendida ? 'valor activo' : 'valor inactivo';
+        }
     }
+}
+
+// ⚠️ Función para activar alerta de sin agua
+function activarSinAguaPileta() {
+    haySinAguaPileta = true;
+    bombaPiletaEncendida = false;
+    valvulaPiletaActiva = null;
+    actualizarTodo();
+    reiniciarContadorPileta();
+    // Mostrar el cartel de alerta en el HTML
+    const alerta = document.getElementById('alerta-sinagua');
+    if (alerta) alerta.classList.add('activa');
+    console.log('⚠️ SIN AGUA — Bomba de pileta detenida');
+}
+
+// 🔄 Reiniciar sistema de pileta
+function reiniciarSistemaPileta() {
+    haySinAguaPileta = false;
+    actualizarTodo();
+    const alerta = document.getElementById('alerta-sinagua');
+    if (alerta) alerta.classList.remove('activa');
+    console.log('✅ Sistema de pileta reiniciado');
 }
 
 window.activarValvulaPileta = async function(modo) {
@@ -76,6 +106,11 @@ window.activarValvulaPileta = async function(modo) {
     if (cambiando) {
         console.log('⏳ Esperando, todavía está cambiando...');
         return;
+    }
+    
+    // ⚠️ Si no hay agua, aviso pero NO bloqueo — el usuario puede reintentar
+    if (haySinAguaPileta) {
+        console.log('⚠️ Estado SIN AGUA — pero se permite reintentar');
     }
     
     if (valvulaPiletaActiva === modo) {
@@ -118,6 +153,7 @@ window.activarValvulaPileta = async function(modo) {
     reiniciarContadorPileta();
     actualizarTodo();
     
+    // ⚠️ Si al encender sigue sin detectar agua, el sistema externo llamará a activarSinAguaPileta()
     cambiando = false;
     console.log('✅ Cambio completado');
 };
@@ -145,4 +181,4 @@ window.detenerTodoPileta = async function() {
     console.log('⏹️ Todo detenido');
 };
 
-console.log('✅ Pileta.js cargado — Color valor esperando en transiciones ✅');
+console.log('✅ Pileta.js cargado — SIN AGUA visible, botones habilitados para reintentar ✅');
