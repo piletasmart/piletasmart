@@ -24,11 +24,11 @@
     <div class="tarjeta">
         <h2>
             <span>Estado — Bomba Sumergible</span>
-            <span id="contador-bomba" class="contador">5s</span>
+            <span id="contador-bomba" class="contador">15s</span>
         </h2>
         <div class="fila-estado">
             <span class="etiqueta">Funcionamiento</span>
-            <span id="bomba-sumergible-estado" class="valor inactivo">⏸️ APAGADA</span>
+            <span id="bomba-sumergible-estado" class="valor inactivo">🔴 APAGADA</span>
         </div>
     </div>
     
@@ -36,19 +36,19 @@
         <h2>Estado — Válvulas Bomba Sumergible</h2>
         <div class="fila-estado">
             <span class="etiqueta">🌿 Regado Zona 1</span>
-            <span id="zona1-estado" class="valor inactivo">⏸️ CERRADO</span>
+            <span id="zona1-estado" class="valor inactivo">🔒 CERRADA</span>
         </div>
         <div class="fila-estado">
             <span class="etiqueta">🌿 Regado Zona 2</span>
-            <span id="zona2-estado" class="valor inactivo">⏸️ CERRADO</span>
+            <span id="zona2-estado" class="valor inactivo">🔒 CERRADA</span>
         </div>
         <div class="fila-estado">
             <span class="etiqueta">🏊 Llenado Pileta</span>
-            <span id="llenado-estado" class="valor inactivo">⏸️ CERRADO</span>
+            <span id="llenado-estado" class="valor inactivo">🔒 CERRADA</span>
         </div>
         <div class="fila-estado">
             <span class="etiqueta">🚰 Tanque de Agua</span>
-            <span id="tanque-estado" class="valor activo">✅ LLENO</span>
+            <span id="tanque-estado" class="valor inactivo">🔒 CERRADA</span>
         </div>
     </div>
     
@@ -58,6 +58,7 @@
             <button id="btn-zona1" class="boton btn-verde" onclick="toggleValvulaBomba('zona1')">🌿 Zona 1</button>
             <button id="btn-zona2" class="boton btn-verde" onclick="toggleValvulaBomba('zona2')">🌿 Zona 2</button>
             <button id="btn-llenado" class="boton btn-azul-agua" onclick="toggleValvulaBomba('llenado')">🏊 Pileta</button>
+            <button id="btn-tanque" class="boton btn-azul-agua" onclick="toggleValvulaBomba('tanque')">🚰 Tanque</button>
             <button id="btn-mtto-bomba" class="boton btn-mantenimiento" onclick="iniciarMantenimientoBomba()">🔧 Mantenimiento</button>
         </div>
         <button class="boton btn-detener" onclick="detenerTodoBomba()">⏹️ DETENER TODO</button>
@@ -70,7 +71,7 @@
         </h2>
         <div class="fila-estado">
             <span class="etiqueta">Funcionamiento</span>
-            <span id="bomba-pileta-estado" class="valor inactivo">⏸️ APAGADA</span>
+            <span id="bomba-pileta-estado" class="valor inactivo">🔴 APAGADA</span>
         </div>
     </div>
     
