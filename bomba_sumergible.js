@@ -82,7 +82,9 @@ function actualizarEstadoTanque() {
 // === CAMBIAR ESTADO DE UNA VÁLVULA — SIEMPRE ESPERA 15s ===
 async function toggleValvulaBomba(nombre) {
     console.log('🔘 Tocaste:', nombre);
-    if (bloqueoBombaSumergible || cicloMantenimientoActivo || haySinAgua) return;
+    
+    // ⚠️ Sigue bloqueando en mantenimiento, pero NO por SIN AGUA — se puede reintentar
+    if (bloqueoBombaSumergible || cicloMantenimientoActivo) return;
 
     const btn = document.getElementById('btn-' + nombre);
     if (!btn) return;
@@ -147,7 +149,7 @@ async function toggleValvulaBomba(nombre) {
 // 🔧 MANTENIMIENTO
 async function iniciarMantenimientoBomba() {
     console.log('🔧 Mantenimiento solicitado');
-    if (bloqueoBombaSumergible || haySinAgua || cicloMantenimientoActivo) return;
+    if (bloqueoBombaSumergible || cicloMantenimientoActivo) return; // ⚠️ Solo bloquea por mantenimiento
 
     if (!bombaSumergibleEncendida) {
         alert('Encendé la bomba primero para hacer el mantenimiento');
@@ -270,4 +272,4 @@ function reiniciarSistema() {
     actualizarEstadoBombaSumergible();
 }
 
-console.log('✅ bomba_sumergible.js cargado — Varias válvulas a la vez ✅ Bomba apaga antes de cerrar última ✅');
+console.log('✅ bomba_sumergible.js cargado — SIN AGUA visible, botones permiten reintentar ✅');
