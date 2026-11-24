@@ -54,13 +54,16 @@
     
     <div class="tarjeta">
         <h2>Control — Bomba Sumergible</h2>
-        <div class="fila-doble">
+        <div class="fila-doble-tres">
             <button id="btn-zona1" class="boton btn-verde" onclick="toggleValvulaBomba('zona1')">🌿 Zona 1</button>
             <button id="btn-zona2" class="boton btn-verde" onclick="toggleValvulaBomba('zona2')">🌿 Zona 2</button>
             <button id="btn-llenado" class="boton btn-azul-agua" onclick="toggleValvulaBomba('llenado')">🏊 Pileta</button>
             <button id="btn-mtto-bomba" class="boton btn-mantenimiento" onclick="iniciarMantenimientoBomba()">🔧 Mantenimiento</button>
         </div>
-        <button class="boton btn-detener" onclick="detenerTodoBomba()">⏹️ DETENER TODO</button>
+        <div class="fila-doble">
+            <button class="boton btn-autoapagado" onclick="abrirTemporizadorBomba()">⏱️ Autoapagado</button>
+            <button class="boton btn-detener" onclick="detenerTodoBomba()">⏹️ DETENER TODO</button>
+        </div>
     </div>
     
     <div class="tarjeta">
@@ -118,7 +121,10 @@
             <button id="btn-hidrojets" class="boton btn-p6" onclick="activarValvulaPileta('hidrojets')">💨 Hidrojets</button>
             <button id="btn-mtto-pileta" class="boton btn-mantenimiento" onclick="iniciarMantenimientoPileta()">🔧 Mantenimiento</button>
         </div>
-        <button class="boton btn-detener" onclick="detenerTodoPileta()">⏹️ DETENER TODO</button>
+        <div class="fila-doble">
+            <button class="boton btn-autoapagado" onclick="abrirTemporizadorPileta()">⏱️ Autoapagado</button>
+            <button class="boton btn-detener" onclick="detenerTodoPileta()">⏹️ DETENER TODO</button>
+        </div>
     </div>
     
     <div class="tarjeta">
@@ -152,10 +158,18 @@
             <button id="btn-luz-jardin" class="boton btn-p3" onclick="toggleLuz('jardin')">💡 Jardín</button>
             <button id="btn-luz-quincho" class="boton btn-p4" onclick="toggleLuz('quincho')">💡 Quincho</button>
         </div>
-        <button class="boton btn-detener" onclick="apagarTodoLuces()">⏹️ APAGAR TODO</button>
+        <div class="fila-doble">
+            <button class="boton btn-autoapagado" onclick="abrirTemporizadorLuces()">⏱️ Autoapagado</button>
+            <button class="boton btn-detener" onclick="apagarTodoLuces()">⏹️ APAGAR TODO</button>
+        </div>
     </div>
     
     <div class="pie">📡 Pileta Smart — Lista para conectar</div>
+
+    <!-- Contenedores para los temporizadores -->
+    <div id="modal-temp-bomba"></div>
+    <div id="modal-temp-pileta"></div>
+    <div id="modal-temp-luces"></div>
 
     <script src="bomba_sumergible.js"></script>
     <script src="pileta.js"></script>
